@@ -1,18 +1,14 @@
 {%- from "moj/components/interruption-card/macro.njk" import interruptionCard -%}
 
 {% call interruptionCard({
-    heading: "Someone else is editing this case",
+    heading: "Case locked because someone has it open in CMS Classic",
     primaryAction: {
-        text: "Continue anyway",
-        href: continueUrl or ("/cases/" + _case.id + "/review")
-    },
-    secondaryAction: {
-        text: "Go back to the case",
-        href: backUrl or ("/cases/" + _case.id)
+        text: "Return to the case",
+        href: ("/cases/" + _case.id)
     }
 }) -%}
 
-    <p>Oliver Del-Staff is currently editing this case.</p>
-    <p>If you continue, you could overwrite or lose changes made to the case.</p>
+    <p>Oliver Del-Staff is currently accessing this case.</p>
+    <p>You cannot start a case review until they exit the case.</p>
     <p>Contact Oliver Del-Staff and ask them to stop editing before you continue.</p>
 {%- endcall %}
